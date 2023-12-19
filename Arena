@@ -21,29 +21,18 @@ local CredSection = Tab1:NewSection("Settings")
 
 
 Section:NewButton("Enable Player Hitbox", "Enable Player Hitbox", function()
-
-spawn(function()
 while true do
-game.Players.LocalPlayer.Character.HumanoidRootPart.Size = Vector3.new(2,2,1)
-wait(0)
+for _, v in pairs(game.Workspace:GetDescendants()) do
+    if v.Name == "HumanoidRootPart" and v:IsA("Part") and v.Parent ~= game.Players.LocalPlayer.Character then
+        v.Size = Vector3.new(25, 25, 25)
+        v.Transparency = 0.8
+        v.Material = "Neon"
+        v.BrickColor = BrickColor.new("Really red")
+        v.CanCollide = false
+    end
 end
-end)
-
-spawn(function()
-while true do
-  for i, v in pairs(game.Workspace:GetDescendants()) do
-            if v.Name == "HumanoidRootPart" then
-
-                v.Size = Vector3.new(25,25,25)
-                v.Transparency = 0.8
-                 v.Material = "Neon"
-             v.BrickColor = BrickColor.new("Really red")
-                v.CanCollide = false
-        end
-    end  
-wait(4)
+wait(2)
 end
-end)
 
     end)
 
