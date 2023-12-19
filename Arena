@@ -22,10 +22,8 @@ local Section11 = Tab2:NewSection("Player-Features")
 local CredSection = Tab1:NewSection("Settings")
 
 
-Section:NewToggle("Enable Player Hitbox", "Enable Player Hitbox", function(Value)
- a = Value
-        while a do task.wait(1)
-        pcall(function()
+Section:NewButton("Enable Player Hitbox", "Enable Player Hitbox", function()
+while true do
  for i, v in pairs(game.Players:GetPlayers()) do
             if v.Name ~= game.Players.LocalPlayer.Name then
             pcall(function()
@@ -38,7 +36,7 @@ Section:NewToggle("Enable Player Hitbox", "Enable Player Hitbox", function(Value
             end)
         end
    end
-  end)
+wait(2)
 end
     end)
 
