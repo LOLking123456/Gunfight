@@ -8,15 +8,13 @@ local Window = Library.CreateLib("[💖🤖UPDATE 8] Grand Piece Online | Legend
 local Tab = Window:NewTab("Main-Features")
 
 
-local Tab2 = Window:NewTab("Player-Features")
-
 
 
 local Tab1 = Window:NewTab("Settings")
 
 local Section = Tab:NewSection("Main-Features")
 
-local Section11 = Tab2:NewSection("Player-Features")
+
 
 
 local CredSection = Tab1:NewSection("Settings")
@@ -24,34 +22,43 @@ local CredSection = Tab1:NewSection("Settings")
 
 Section:NewButton("Enable Player Hitbox", "Enable Player Hitbox", function()
 while true do
- for i, v in pairs(game.Players:GetPlayers()) do
-            if v.Name ~= game.Players.LocalPlayer.Name then
-            pcall(function()
-
-                v.Character.HumanoidRootPart.Size = Vector3.new(20,20,20)
-                v.Character.HumanoidRootPart.Transparency = 0.7
-                 v.Character.HumanoidRootPart.Material = "Neon"
-             v.Character.HumanoidRootPart.BrickColor = BrickColor.new("Really red")
-                v.Character.HumanoidRootPart.CanCollide = false
-            end)
-        end
-   end
+  for _,v in pairs(workspace:GetDescendants()) do
+v.Name == "HumanoidRootPart" then
+                v.Size = Vector3.new(20,20,20)
+                v.Transparency = 0.7
+                 v.Material = "Neon"
+             v.BrickColor = BrickColor.new("Really red")
+                v.CanCollide = false
+           end
+end
 wait(2)
 end
     end)
 
 
 
-    
-Section:NewButton("Remove Nametag", "Remove Nametag", function()
-  
+Section:NewButton("FPS Boost (No Lag)", "Go To Void!", function()
+  loadstring(game:HttpGet("https://raw.githubusercontent.com/LOLking123456/fps/main/boost"))()
+
+    end)
+
+Section:NewButton("FPS Boost 2", "Peak under the field!", function()
+   for _,v in pairs(workspace:GetDescendants()) do
+if v.ClassName == "Part"
+or v.ClassName == "SpawnLocation"
+or v.ClassName == "WedgePart"
+or v.ClassName == "Terrain"
+or v.ClassName == "MeshPart" then
+v.Material = "Plastic"
+end
+end
 end)
 
 Section:NewButton("Remove Ragdoll", "Remove Ragdoll", function()
 game:GetService("Players").LocalPlayer.PlayerScripts.Ragdolls:Destroy()
 end)
 
-Section11:NewButton("CFrame Speed (Z)", "Press Y To Toggle Off/On", function()
+Section:NewButton("CFrame Speed (Z)", "Press Z To Toggle Off/On", function()
 
 
   repeat
@@ -102,24 +109,12 @@ Section11:NewButton("CFrame Speed (Z)", "Press Y To Toggle Off/On", function()
 
 
 
-Section11:NewButton("Boost FPS", "FPS Booster", function()
-        for _,v in pairs(workspace:GetDescendants()) do
-if v.ClassName == "Part"
-or v.ClassName == "SpawnLocation"
-or v.ClassName == "WedgePart"
-or v.ClassName == "Terrain"
-or v.ClassName == "MeshPart" then
-v.Material = "Plastic"
-end
-end
-end)
-
-Section11:NewSlider("FOV", "FOV", 70, 120, function(s) -- 500 (MaxValue) | 0 (MinValue)
+Section:NewSlider("FOV", "FOV", 70, 120, function(s) -- 500 (MaxValue) | 0 (MinValue)
        
 game:GetService'Workspace'.Camera.FieldOfView = (s)
 end)
 
-Section11:NewToggle("Infinite Jump", "Infinite Jump", function(state)
+Section:NewToggle("Infinite Jump", "Infinite Jump", function(state)
 if state then
 _G.infinjump = true
 local Player = game:GetService("Players").LocalPlayer
@@ -145,7 +140,7 @@ end
 end
             end)
 
-Section11:NewToggle("Noclip", "Noclip", function()
+Section:NewToggle("Noclip", "Noclip", function()
  local Noclip = nil
 local Clip = nil
 
