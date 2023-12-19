@@ -41,7 +41,7 @@ while true do
                 v.CanCollide = false
         end
     end  
-wait(2)
+wait(4)
 end
 end)
 
