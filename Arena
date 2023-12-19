@@ -185,7 +185,7 @@ Section:NewButton("CFrame Speed (Y)", "Press Y To Toggle Off/On", function()
     	until L_135_.Character
     	local L_136_ = game:service('UserInputService')
     	local L_137_ = game:service('RunService')
-    	getgenv().Multiplier = 0.2
+    	getgenv().Multiplier = 0.08
     	local L_138_ = true
     	local L_139_
     	L_136_.InputBegan:connect(function(L_140_arg0)
@@ -237,12 +237,11 @@ end
 end
     end)
 
-
-
-
-Section:NewSlider("FOV", "FOV", 120, 70, function(s) -- 500 (MaxValue) | 0 (MinValue)
-       
-game:GetService'Workspace'.Camera.FieldOfView = (s)
+Section:NewButton("Max FOV", "Zoom Out", function()
+while true do
+game:GetService'Workspace'.Camera.FieldOfView = 120
+wait(0)
+end
 end)
 
 Section:NewToggle("Infinite Jump", "Infinite Jump", function(state)
