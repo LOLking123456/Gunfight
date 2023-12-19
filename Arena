@@ -170,7 +170,7 @@ end)
 
 
 
-CredSection:NewButton("Mobile Keyboard", "Mobile Players", function(state)
+Section:NewButton("Mobile Keyboard", "Mobile Players", function(state)
 loadstring(game:HttpGet("https://raw.githubusercontent.com/advxzivhsjjdhxhsidifvsh/mobkeyboard/main/main.txt", true))()
 end)
 
@@ -185,7 +185,7 @@ Section:NewButton("CFrame Speed (Y)", "Press Y To Toggle Off/On", function()
     	until L_135_.Character
     	local L_136_ = game:service('UserInputService')
     	local L_137_ = game:service('RunService')
-    	getgenv().Multiplier = 0.5
+    	getgenv().Multiplier = 0.2
     	local L_138_ = true
     	local L_139_
     	L_136_.InputBegan:connect(function(L_140_arg0)
@@ -240,7 +240,7 @@ end
 
 
 
-Section:NewSlider("FOV", "FOV", 70, 120, function(s) -- 500 (MaxValue) | 0 (MinValue)
+Section:NewSlider("FOV", "FOV", 120, 70, function(s) -- 500 (MaxValue) | 0 (MinValue)
        
 game:GetService'Workspace'.Camera.FieldOfView = (s)
 end)
