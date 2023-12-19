@@ -1,0 +1,421 @@
+
+
+
+local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/xHeptc/Kavo-UI-Library/main/source.lua"))()
+
+local Window = Library.CreateLib("[💖🤖UPDATE 8] Grand Piece Online | Legend HandlesYT", "BloodTheme")
+
+local Tab = Window:NewTab("Main-Features")
+
+
+local Tab2 = Window:NewTab("Player-Features")
+
+
+
+local Tab1 = Window:NewTab("Settings")
+
+local Section = Tab:NewSection("Main-Features")
+
+local Section11 = Tab2:NewSection("Player-Features")
+
+
+local CredSection = Tab1:NewSection("Settings")
+
+
+Section:NewToggle("Enable Player Hitbox", "Enable Player Hitbox", function(state)
+if state then
+ for i, v in pairs(game.Players:GetPlayers()) do
+            if v.Name ~= game.Players.LocalPlayer.Name then
+            pcall(function()
+
+                v.Character.HumanoidRootPart.Size = Vector3.new(25, 25, 25)
+                v.Character.HumanoidRootPart.Transparency = 0.7
+                 v.Character.HumanoidRootPart.Material = "Neon"
+             v.Character.HumanoidRootPart.BrickColor = BrickColor.new("Really red")
+                v.Character.HumanoidRootPart.CanCollide = false
+            end)
+        end
+    end
+    else
+     for i, v in pairs(game.Players:GetPlayers()) do
+            if v.Name ~= game.Players.LocalPlayer.Name then
+            pcall(function()
+
+                v.Character.HumanoidRootPart.Size = Vector3.new(2,2,1)
+                v.Character.HumanoidRootPart.Transparency = 1
+                 v.Character.HumanoidRootPart.Material = "Neon"
+             v.Character.HumanoidRootPart.BrickColor = BrickColor.new("Really red")
+                v.Character.HumanoidRootPart.CanCollide = false
+            end)
+        end
+    end
+    end
+    end)
+
+
+    
+    Section:NewSlider("Player Hitbox", "Player Hitbox", 50, 2, function(s) -- 500 (MaxValue) | 0 (MinValue)
+      for i, v in pairs(game.Players:GetPlayers()) do
+            if v.Name ~= game.Players.LocalPlayer.Name then
+            pcall(function()
+
+                v.Character.HumanoidRootPart.Size = Vector3.new((s),(s),(s))
+                v.Character.HumanoidRootPart.Transparency = 0.7
+                 v.Character.HumanoidRootPart.Material = "Neon"
+             v.Character.HumanoidRootPart.BrickColor = BrickColor.new("Really red")
+                v.Character.HumanoidRootPart.CanCollide = false
+            end)
+        end
+   end
+    end)
+    
+Section:NewButton("Remove Nametag", "Remove Nametag", function()
+  
+end)
+
+Section:NewButton("Remove Ragdoll", "Remove Ragdoll", function()
+game:GetService("Players").LocalPlayer.PlayerScripts.Ragdolls:Destroy()
+end)
+
+Section11:NewButton("CFrame Speed (Z)", "Press Y To Toggle Off/On", function()
+
+
+  repeat
+    		wait()
+    	until game:IsLoaded()
+    	local L_134_ = game:service('Players')
+    	local L_135_ = L_134_.LocalPlayer
+    	repeat
+    		wait()
+    	until L_135_.Character
+    	local L_136_ = game:service('UserInputService')
+    	local L_137_ = game:service('RunService')
+    	getgenv().Multiplier = 1
+    	local L_138_ = true
+    	local L_139_
+    	L_136_.InputBegan:connect(function(L_140_arg0)
+    		if L_140_arg0.KeyCode == Enum.KeyCode.LeftBracket then
+    			Multiplier = Multiplier + 0.01
+    			print(Multiplier)
+    			wait(0.2)
+    			while L_136_:IsKeyDown(Enum.KeyCode.LeftBracket) do
+    				wait()
+    				Multiplier = Multiplier + 0.01
+    				print(Multiplier)
+    			end
+    		end
+    		if L_140_arg0.KeyCode == Enum.KeyCode.RightBracket then
+    			Multiplier = Multiplier - 0.01
+    			print(Multiplier)
+    			wait(0.2)
+    			while L_136_:IsKeyDown(Enum.KeyCode.RightBracket) do
+    				wait()
+    				Multiplier = Multiplier - 0.01
+    				print(Multiplier)
+    			end
+    		end
+    		if L_140_arg0.KeyCode == Enum.KeyCode.Y then
+    			L_138_ = not L_138_
+    			if L_138_ == true then
+    				repeat
+    					game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame + game.Players.LocalPlayer.Character.Humanoid.MoveDirection * Multiplier
+    					game:GetService("RunService").Stepped:wait()
+    				until L_138_ == false
+    			end
+    		end
+    	end)
+    	end)
+
+
+
+Section11:NewButton("Boost FPS", "FPS Booster", function()
+        for _,v in pairs(workspace:GetDescendants()) do
+if v.ClassName == "Part"
+or v.ClassName == "SpawnLocation"
+or v.ClassName == "WedgePart"
+or v.ClassName == "Terrain"
+or v.ClassName == "MeshPart" then
+v.Material = "Plastic"
+end
+end
+end)
+
+Section11:NewSlider("FOV", "FOV", 70, 120, function(s) -- 500 (MaxValue) | 0 (MinValue)
+       
+game:GetService'Workspace'.Camera.FieldOfView = (s)
+end)
+
+Section11:NewToggle("Infinite Jump", "Infinite Jump", function(state)
+if state then
+_G.infinjump = true
+local Player = game:GetService("Players").LocalPlayer
+local Mouse = Player:GetMouse()
+Mouse.KeyDown:connect(function(k)
+if _G.infinjump then
+if k:byte() == 32 then
+Humanoid = game:GetService("Players").LocalPlayer.Character:FindFirstChildOfClass("Humanoid")
+Humanoid:ChangeState("Jumping")
+wait(0.1)
+Humanoid:ChangeState("Seated")
+end
+end
+end)
+local Player = game:GetService("Players").LocalPlayer
+local Mouse = Player:GetMouse()
+    else
+if _G.infinjump == true then
+_G.infinjump = false
+else
+_G.infinjump = true
+end
+end
+            end)
+
+Section11:NewToggle("Noclip", "Noclip", function()
+ local Noclip = nil
+local Clip = nil
+
+function noclip()
+	Clip = false
+	local function Nocl()
+		if Clip == false and game.Players.LocalPlayer.Character ~= nil then
+			for _,v in pairs(game.Players.LocalPlayer.Character:GetDescendants()) do
+				if v:IsA('BasePart') and v.CanCollide and v.Name ~= floatName then
+					v.CanCollide = false
+				end
+			end
+		end
+		wait(0.21) -- basic optimization
+	end
+	Noclip = game:GetService('RunService').Stepped:Connect(Nocl)
+end
+
+function clip()
+	if Noclip then Noclip:Disconnect() end
+	Clip = true
+end
+
+noclip()
+end)
+
+
+Section1:NewToggle("Breakdown", "Free Emotes Everyone Can See", function(state)
+if state then
+  Player = "LocalPlayer" --- you can still put any player name here
+
+
+AnimationId = "2453303634" --- add ID's from the bottom[/size]
+local Anim = Instance.new("Animation") --- Creates animation[/size]
+Anim.AnimationId = "rbxassetid://"..AnimationId ---- inserts the ID[/size]
+local k = game.Players[Player].Character.Humanoid:LoadAnimation(Anim) --- makes the animation a function[/size]
+k:Play() --Play the animation ----- Runs the animation.[/size]
+k:AdjustSpeed(1) 
+
+
+else
+
+h = game.Players.LocalPlayer.Character.Humanoid
+tracks = h:GetPlayingAnimationTracks()
+for _,x in pairs(tracks)
+do x:Stop()
+end
+
+end
+end)
+
+
+
+Section1:NewToggle("Hype", "Free Emotes Everyone Can See", function(state)
+if state then
+  Player = "LocalPlayer" --- you can still put any player name here
+
+
+AnimationId = "2452394685" --- add ID's from the bottom[/size]
+local Anim = Instance.new("Animation") --- Creates animation[/size]
+Anim.AnimationId = "rbxassetid://"..AnimationId ---- inserts the ID[/size]
+local k = game.Players[Player].Character.Humanoid:LoadAnimation(Anim) --- makes the animation a function[/size]
+k:Play() --Play the animation ----- Runs the animation.[/size]
+k:AdjustSpeed(1) 
+
+
+else
+
+h = game.Players.LocalPlayer.Character.Humanoid
+tracks = h:GetPlayingAnimationTracks()
+for _,x in pairs(tracks)
+do x:Stop()
+end
+
+end
+end)
+
+
+
+
+Section1:NewToggle("Eagle", "Free Emotes Everyone Can See", function(state)
+if state then
+  Player = "LocalPlayer" --- you can still put any player name here
+
+
+AnimationId = "2453340722" --- add ID's from the bottom[/size]
+local Anim = Instance.new("Animation") --- Creates animation[/size]
+Anim.AnimationId = "rbxassetid://"..AnimationId ---- inserts the ID[/size]
+local k = game.Players[Player].Character.Humanoid:LoadAnimation(Anim) --- makes the animation a function[/size]
+k:Play() --Play the animation ----- Runs the animation.[/size]
+k:AdjustSpeed(1) 
+
+
+else
+
+h = game.Players.LocalPlayer.Character.Humanoid
+tracks = h:GetPlayingAnimationTracks()
+for _,x in pairs(tracks)
+do x:Stop()
+end
+
+end
+end)
+
+
+
+Section1:NewToggle("Orange", "Free Emotes Everyone Can See", function(state)
+if state then
+  Player = "LocalPlayer" --- you can still put any player name here
+
+
+AnimationId = "2452424399" --- add ID's from the bottom[/size]
+local Anim = Instance.new("Animation") --- Creates animation[/size]
+Anim.AnimationId = "rbxassetid://"..AnimationId ---- inserts the ID[/size]
+local k = game.Players[Player].Character.Humanoid:LoadAnimation(Anim) --- makes the animation a function[/size]
+k:Play() --Play the animation ----- Runs the animation.[/size]
+k:AdjustSpeed(1) 
+
+
+else
+
+h = game.Players.LocalPlayer.Character.Humanoid
+tracks = h:GetPlayingAnimationTracks()
+for _,x in pairs(tracks)
+do x:Stop()
+end
+
+end
+end)
+
+
+
+
+Section1:NewToggle("Wiggle", "Free Emotes Everyone Can See", function(state)
+if state then
+  Player = "LocalPlayer" --- you can still put any player name here
+
+
+AnimationId = "2453298157" --- add ID's from the bottom[/size]
+local Anim = Instance.new("Animation") --- Creates animation[/size]
+Anim.AnimationId = "rbxassetid://"..AnimationId ---- inserts the ID[/size]
+local k = game.Players[Player].Character.Humanoid:LoadAnimation(Anim) --- makes the animation a function[/size]
+k:Play() --Play the animation ----- Runs the animation.[/size]
+k:AdjustSpeed(1) 
+
+
+else
+
+h = game.Players.LocalPlayer.Character.Humanoid
+tracks = h:GetPlayingAnimationTracks()
+for _,x in pairs(tracks)
+do x:Stop()
+end
+
+end
+end)
+
+
+Section1:NewToggle("Take The L", "Free Emotes Everyone Can See", function(state)
+if state then
+  Player = "LocalPlayer" --- you can still put any player name here
+
+
+AnimationId = "2452660796" --- add ID's from the bottom[/size]
+local Anim = Instance.new("Animation") --- Creates animation[/size]
+Anim.AnimationId = "rbxassetid://"..AnimationId ---- inserts the ID[/size]
+local k = game.Players[Player].Character.Humanoid:LoadAnimation(Anim) --- makes the animation a function[/size]
+k:Play() --Play the animation ----- Runs the animation.[/size]
+k:AdjustSpeed(1) 
+
+
+else
+
+h = game.Players.LocalPlayer.Character.Humanoid
+tracks = h:GetPlayingAnimationTracks()
+for _,x in pairs(tracks)
+do x:Stop()
+end
+
+end
+end)
+
+
+Section1:NewToggle("Default", "Free Emotes Everyone Can See", function(state)
+if state then
+  Player = "LocalPlayer" --- you can still put any player name here
+
+
+AnimationId = "2452400423" --- add ID's from the bottom[/size]
+local Anim = Instance.new("Animation") --- Creates animation[/size]
+Anim.AnimationId = "rbxassetid://"..AnimationId ---- inserts the ID[/size]
+local k = game.Players[Player].Character.Humanoid:LoadAnimation(Anim) --- makes the animation a function[/size]
+k:Play() --Play the animation ----- Runs the animation.[/size]
+k:AdjustSpeed(1) 
+
+
+else
+
+h = game.Players.LocalPlayer.Character.Humanoid
+tracks = h:GetPlayingAnimationTracks()
+for _,x in pairs(tracks)
+do x:Stop()
+end
+
+end
+end)
+
+
+
+Section1:NewToggle("Dab", "Free Emotes Everyone Can See", function(state)
+if state then
+  Player = "LocalPlayer" --- you can still put any player name here
+
+
+AnimationId = "2452429327" --- add ID's from the bottom[/size]
+local Anim = Instance.new("Animation") --- Creates animation[/size]
+Anim.AnimationId = "rbxassetid://"..AnimationId ---- inserts the ID[/size]
+local k = game.Players[Player].Character.Humanoid:LoadAnimation(Anim) --- makes the animation a function[/size]
+k:Play() --Play the animation ----- Runs the animation.[/size]
+k:AdjustSpeed(1) 
+
+
+else
+
+h = game.Players.LocalPlayer.Character.Humanoid
+tracks = h:GetPlayingAnimationTracks()
+for _,x in pairs(tracks)
+do x:Stop()
+end
+
+end
+end)
+
+
+
+
+
+CredSection:NewLabel("Made By Legend HandlesYT")
+
+
+CredSection:NewKeybind("Toggle UI", "Toggle The UI", Enum.KeyCode.L, function()
+	Library:ToggleUI()
+end)
+
+CredSection:NewButton("Mobile Keyboard", "Mobile Players", function(state)
+loadstring(game:HttpGet("https://raw.githubusercontent.com/advxzivhsjjdhxhsidifvsh/mobkeyboard/main/main.txt", true))()
+end)
