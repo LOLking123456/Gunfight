@@ -38,8 +38,8 @@ Section:NewToggle("Enable Player Hitbox", "Enable Player Hitbox", function(Value
             end)
         end
    end
-   end
-end)
+  end)
+end
     end)
 
 
