@@ -24,7 +24,7 @@ Section:NewButton("Enable Player Hitbox", "Enable Player Hitbox", function()
 
 spawn(function()
 while true do
-game.Players.LocalPlayer.HumanoidRootPart.Size = Vector3.new(2,2,1)
+game.Players.LocalPlayer.Character.HumanoidRootPart.Size = Vector3.new(2,2,1)
 wait(0)
 end
 end)
