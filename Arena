@@ -58,9 +58,16 @@ end
 
 
 
-Section:NewButton("FPS Boost (No Lag)", "Go To Void!", function()
-  loadstring(game:HttpGet("https://raw.githubusercontent.com/LOLking123456/fps/main/boost"))()
-
+Section:NewButton("FPS Boost (No Lag)", "No Lag", function()
+     for _,v in pairs(workspace:GetDescendants()) do
+if v.ClassName == "Part"
+or v.ClassName == "SpawnLocation"
+or v.ClassName == "WedgePart"
+or v.ClassName == "Terrain"
+or v.ClassName == "MeshPart" then
+v.Material = "Plastic"
+end
+end
     end)
 
 
