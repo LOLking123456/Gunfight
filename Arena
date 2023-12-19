@@ -44,38 +44,6 @@ end)
 
 
 
-Section:NewToggle("Hitbox Transparency", "Transparency", function(state)
-if state then
- for i, v in pairs(game.Players:GetPlayers()) do
-            if v.Name ~= game.Players.LocalPlayer.Name then
-            pcall(function()
-
-                v.Character.HumanoidRootPart.Size = Vector3.new(20,20,20)
-                v.Character.HumanoidRootPart.Transparency = 1
-                 v.Character.HumanoidRootPart.Material = "Neon"
-             v.Character.HumanoidRootPart.BrickColor = BrickColor.new("Really red")
-                v.Character.HumanoidRootPart.CanCollide = false
-            end)
-        end
-   end
-
-else
- for i, v in pairs(game.Players:GetPlayers()) do
-            if v.Name ~= game.Players.LocalPlayer.Name then
-            pcall(function()
-
-                v.Character.HumanoidRootPart.Size = Vector3.new(20,20,20)
-                v.Character.HumanoidRootPart.Transparency = 0.7
-                 v.Character.HumanoidRootPart.Material = "Neon"
-             v.Character.HumanoidRootPart.BrickColor = BrickColor.new("Really red")
-                v.Character.HumanoidRootPart.CanCollide = false
-            end)
-        end
-   end
-end
-end)
-    
-    
     
 Section:NewButton("Remove Nametag", "Remove Nametag", function()
   
