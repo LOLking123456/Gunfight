@@ -23,10 +23,6 @@ local CredSection = Tab1:NewSection("Settings")
 Section:NewButton("Enable Player Hitbox", "Enable Player Hitbox", function()
 spawn(function()
 while true do
-
-
-
-
   for i, v in pairs(game.Workspace:GetDescendants()) do
             if v.Name == "HumanoidRootPart" then
 
@@ -37,7 +33,6 @@ while true do
                 v.CanCollide = false
         end
     end  
-end)
 wait(2)
 end
 end)
