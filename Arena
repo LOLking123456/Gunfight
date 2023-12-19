@@ -43,25 +43,12 @@ Section:NewButton("FPS Boost (No Lag)", "Go To Void!", function()
 
     end)
 
-Section:NewButton("FPS Boost 2", "Peak under the field!", function()
-   for _,v in pairs(workspace:GetDescendants()) do
-if v.ClassName == "Part"
-or v.ClassName == "SpawnLocation"
-or v.ClassName == "WedgePart"
-or v.ClassName == "Terrain"
-or v.ClassName == "MeshPart" then
-v.Material = "Plastic"
-end
-end
-end)
 
 Section:NewButton("Remove Ragdoll", "Remove Ragdoll", function()
 game:GetService("Players").LocalPlayer.PlayerScripts.Ragdolls:Destroy()
 end)
 
 Section:NewButton("CFrame Speed (Z)", "Press Z To Toggle Off/On", function()
-
-
   repeat
     		wait()
     	until game:IsLoaded()
