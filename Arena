@@ -23,7 +23,7 @@ Section:NewButton("Enable Player Hitbox (Medium)", "Enable Player Hitbox", funct
 while true do
 for _, v in pairs(game.Workspace:GetDescendants()) do
     if v.Name == "HumanoidRootPart" and v:IsA("Part") and v.Parent ~= game.Players.LocalPlayer.Character then
-        v.Size = Vector3.new(15,15,15)
+        v.Size = Vector3.new(15, 15, 15)
         v.Transparency = 0.8
         v.Material = "Neon"
         v.BrickColor = BrickColor.new("Really red")
@@ -36,6 +36,21 @@ end
     end)
 
 
+Section:NewButton("Enable Player Hitbox (Big)", "Enable Player Hitbox", function()
+while true do
+for _, v in pairs(game.Workspace:GetDescendants()) do
+    if v.Name == "HumanoidRootPart" and v:IsA("Part") and v.Parent ~= game.Players.LocalPlayer.Character then
+        v.Size = Vector3.new(25, 25, 25)
+        v.Transparency = 0.8
+        v.Material = "Neon"
+        v.BrickColor = BrickColor.new("Really red")
+        v.CanCollide = false
+    end
+end
+wait(2)
+end
+
+    end)
 
 Section:NewToggle("Player ESP", "Player ESP", function(state)
 if state then
@@ -159,7 +174,7 @@ CredSection:NewButton("Mobile Keyboard", "Mobile Players", function(state)
 loadstring(game:HttpGet("https://raw.githubusercontent.com/advxzivhsjjdhxhsidifvsh/mobkeyboard/main/main.txt", true))()
 end)
 
-Section:NewButton("CFrame Speed (Z)", "Press Z To Toggle Off/On", function()
+Section:NewButton("CFrame Speed (Y)", "Press Y To Toggle Off/On", function()
   repeat
     		wait()
     	until game:IsLoaded()
@@ -170,7 +185,7 @@ Section:NewButton("CFrame Speed (Z)", "Press Z To Toggle Off/On", function()
     	until L_135_.Character
     	local L_136_ = game:service('UserInputService')
     	local L_137_ = game:service('RunService')
-    	getgenv().Multiplier = 1
+    	getgenv().Multiplier = 0.5
     	local L_138_ = true
     	local L_139_
     	L_136_.InputBegan:connect(function(L_140_arg0)
@@ -207,22 +222,6 @@ Section:NewButton("CFrame Speed (Z)", "Press Z To Toggle Off/On", function()
     	end)
 
 
-
-Section:NewButton("Enable Player Hitbox (Big)", "Enable Player Hitbox", function()
-while true do
-for _, v in pairs(game.Workspace:GetDescendants()) do
-    if v.Name == "HumanoidRootPart" and v:IsA("Part") and v.Parent ~= game.Players.LocalPlayer.Character then
-        v.Size = Vector3.new(25, 25, 25)
-        v.Transparency = 0.8
-        v.Material = "Neon"
-        v.BrickColor = BrickColor.new("Really red")
-        v.CanCollide = false
-    end
-end
-wait(2)
-end
-
-    end)
 
 
 
